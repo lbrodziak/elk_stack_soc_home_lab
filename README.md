@@ -34,4 +34,9 @@ After installing Elastic search there is one update to the configuration that ha
  </p>
 <br />
 After saving the file I ran the elasticsearch service by using following commands: sudo systemctl daemon-reload, sudo systemctl enable elasticsearch.service, sudo systemctl start elasticsearch.service
+<br />
+After installing Kibana I have edited it configuration and uncommenting the following lines and setting values for URL and host putting in VMs IP:<br/><br/> <p align="center">
+<img src="https://github.com/user-attachments/assets/ff9c60fc-eb47-4417-8ec8-44cbdbd3687a" height="80%" width="80%" alt="IP verification"/>
+ </p>
+<br />
 
