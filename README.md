@@ -16,20 +16,17 @@ This is a guided project created during "30 day SOC analyst challenge" on MyDFIR
 <h2>Project walk-through:</h2>
 
 
-For WSS to work properly we first need to set a static ip address using command: ```gcloud compute addresses create ip_address_name --region="REGION"``` where "REGION" is the region we would like to create the ip address in.
- <br/>
- <p align="center">
-   <img src="https://github.com/user-attachments/assets/d1bd1d64-1985-469d-9143-45a92934a024" height="120%" width="120%" alt="Create static ip"/>
+First step is to create 7 VMs in VirtualBox: 
+- <b>4 Ubuntu servers</b>
+- <b>2 Windows servers</b>
+- <b>1 Kali Linux machine</b>
+ <p align="center"> <img src="https://github.com/user-attachments/assets/a2b7911a-c2e8-43b1-90b9-b53aefae5b39" height="80%" width="80%" alt="IP verification"/>
  </p>
 <br />
-Then we need to verify if the address was created properly
-<br/> <br>
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/1adf9a94-ac81-4ee0-abd4-f13d3f109ffb" height="80%" width="80%" alt="IP verification"/>
-</p>
-<br />
-Next step is to create vm instance that will host our web app. We can do this using command: ```gcloud compute instances create vm-instance-name --address=static-ip --no-service-account --no-scopes --machine-type=e2-micro --zone="ZONE" --metadata=startup-script='apt-get update; apt-get install -y python3-flask' ``` This command will create vm instance and give it the static ip we have created. The metadata part constains a script that will automatically install Flask upon VM startup. After the VM is created we can verify it under Compute Engine > VM instances in GCP navigation menu: <br/><br/> <p align="center">
-<img src="https://github.com/user-attachments/assets/a5a5a316-80b9-4a32-9604-5926a566b00f" height="80%" width="80%" alt="VM verify"/></p>
+Next step was to create a NAT Network and attach each VM to it (I have used the default setting in VirtualBox).
+<br/><br />
+To make configuration and installation of tools in the Ubuntu Server VMs I have created port forwarding rules in NAT network setting to be able to SSH into VMs: <br/><br/> <p align="center">
+<img src="https://github.com/user-attachments/assets/328a9099-beb9-455e-b3cc-74cdeb839b43" height="80%" width="80%" alt="VM verify"/></p>
 <br />
 
 Then we create a firewall rule to allow connections to our app using following command ```gcloud compute firewall-rules create wss-scan-demo \
