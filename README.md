@@ -28,9 +28,10 @@ Next step was to create a NAT Network and attach each VM to it (I have used the 
 To make configuration and installation of tools in the Ubuntu Server VMs I have created port forwarding rules in NAT network setting to be able to SSH into VMs: <br/><br/> <p align="center">
 <img src="https://github.com/user-attachments/assets/328a9099-beb9-455e-b3cc-74cdeb839b43" height="80%" width="80%" alt="VM verify"/></p>
 <br />
-After installing operating systems and updateing and upgrading all the packages in Ubuntu VMs I began installing software. First I installed Elasticsearch and Kibana by downloading them using wget command and then running dpkg -i command passing each deb file.
+After installing operating systems and updateing and upgrading all the packages in Ubuntu VMs I began installing software. First I installed Elasticsearch and Kibana by downloading them using wget command and then running dpkg -i command passing each deb file. Diring Elasticsearch installation a admin account is created the credentials should be copied and saved somewhere safe.
 After installing Elastic search there is one update to the configuration that has to be done. I have edited the config file using sudo nano /etc/elasticsearch/elasticsearch.yml. In the YAML file I have uncommented the following two lines and also changed the IP to my VMs IP leaving the port number as is<br/><br/> <p align="center">
 <img src="https://github.com/user-attachments/assets/2c336fbc-a810-4c0c-890f-1ded05679fce" height="80%" width="80%" alt="IP verification"/>
  </p>
 <br />
+After saving the file I ran the elasticsearch service by using following commands: sudo systemctl daemon-reload, sudo systemctl enable elasticsearch.service, sudo systemctl start elasticsearch.service
 
