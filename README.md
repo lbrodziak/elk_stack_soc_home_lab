@@ -55,4 +55,5 @@ The token can be created by going into /usr/share/elasticsearch/bin and running 
  <p align="center">
 <img src="https://github.com/user-attachments/assets/b8a4c598-64b5-4938-b629-3f45bbc0964e" height="80%" width="80%" alt="IP verification"/> </p>
 <br />
+After completeng these steps I was able to login to Kibana by using the usernam elastic and password that was generated during Elasticsearch installation:
 
